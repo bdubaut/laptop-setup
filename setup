@@ -226,15 +226,22 @@ brew_install_or_upgrade 'rbenv'
 brew_install_or_upgrade 'ruby-build'
 append_to_zshrc 'eval "$(rbenv init - --no-rehash zsh)"' 1
 brew_install_or_upgrade 'openssl'
+
 brew unlink openssl && brew link openssl --force
+
 brew_install_or_upgrade 'libyaml'
 
 brew_install_or_upgrade 'caskroom/cask/brew-cask'
+
 brew_cask_install 'google-chrome'
+
 brew_cask_install 'atom'
+
 brew_cask_install 'virtualbox'
+
 brew_install_or_upgrade 'boot2docker'
 brew_install_or_upgrade 'docker'
+brew_install_or_upgrade 'docker-compose'
 
 # Get the latest stable version of Ruby from Thoughtbot
 ruby_version="$(curl -sSL http://ruby.thoughtbot.com/latest)"
