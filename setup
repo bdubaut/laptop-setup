@@ -148,6 +148,10 @@ brew_install_or_upgrade() {
   fi
 }
 
+brew_cask_install() {
+  brew cask install "$@"
+}
+
 brew_is_installed() {
   local name="$(brew_expand_alias "$1")"
 
@@ -225,6 +229,10 @@ append_to_zshrc 'eval "$(rbenv init - --no-rehash zsh)"' 1
 brew_install_or_upgrade 'openssl'
 brew unlink openssl && brew link openssl --force
 brew_install_or_upgrade 'libyaml'
+
+brew_install_or_upgrade 'caskroom/cask/brew-cask'
+brew_cask_install 'google-chrome'
+
 
 ruby_version="$(curl -sSL http://ruby.thoughtbot.com/latest)"
 
