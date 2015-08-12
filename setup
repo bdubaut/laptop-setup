@@ -40,7 +40,6 @@ if [ ! -f "$HOME/.zshrc" ]; then
   touch "$HOME/.zshrc"
 fi
 
-# shellcheck disable=SC2016
 append_to_zshrc 'export PATH="$HOME/.bin:$PATH"'
 
 case "$SHELL" in
@@ -232,8 +231,12 @@ brew_install_or_upgrade 'libyaml'
 
 brew_install_or_upgrade 'caskroom/cask/brew-cask'
 brew_cask_install 'google-chrome'
+brew_cask_install 'atom'
+brew_cask_install 'virtualbox'
+brew_install_or_upgrade 'boot2docker'
+brew_install_or_upgrade 'docker'
 
-
+# Get the latest stable version of Ruby from Thoughtbot
 ruby_version="$(curl -sSL http://ruby.thoughtbot.com/latest)"
 
 eval "$(rbenv init - zsh)"
